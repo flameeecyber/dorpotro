@@ -1,0 +1,52 @@
+{
+  "id": "egp-780931",
+  "title": "Supply, installation and commissioning of 120 desktop computers and UPS",
+  "entity": "Directorate of Secondary and Higher Education (DSHE)",
+  "type": "goods",
+  "method": "One Stage Two Envelope",
+  "estimated_cost": 18000000,
+  "tender_id": "780931",
+  "sample": true,
+  "provenance": "Representative sample modelled on a public e-GP goods tender. The turnover threshold deliberately points to a TDS section that is not part of the published document, to exercise the refusal path.",
+  "submission": {
+    "deadline": "2026-12-05T12:00:00+06:00",
+    "mode": "online",
+    "portal": "www.eprocure.gov.bd",
+    "page": 3,
+    "quote": "Tenders must be submitted through the e-GP portal not later than 05 December 2026 at 12:00 hours Bangladesh Standard Time."
+  },
+  "security": {
+    "amount_bdt": 150000,
+    "form": "pay order",
+    "payee": "Director, DSHE",
+    "validity_days": 90,
+    "page": 6,
+    "quote": "The tender security shall be BDT 1,50,000 (one lakh fifty thousand) in the form of a pay order in favour of the Director, DSHE."
+  },
+  "pages": [
+    { "n": 1, "text": "Government of the People's Republic of Bangladesh. Directorate of Secondary and Higher Education. Invitation for Tenders. Tender ID: 780931. Procurement Method: One Stage Two Envelope. Package: DSHE/ICT/2026-27/G-07." },
+    { "n": 2, "text": "1. The Directorate invites tenders for the supply, installation and commissioning of 120 desktop computers and 120 UPS units for selected secondary schools. 2. The estimated cost is BDT 1,80,00,000 (one crore eighty lakh)." },
+    { "n": 3, "text": "3. Tenders must be submitted through the e-GP portal not later than 05 December 2026 at 12:00 hours Bangladesh Standard Time. 4. Tenders received after the deadline shall not be considered." },
+    { "n": 4, "text": "5. The Tenderer shall have a minimum average annual turnover as specified in the Tender Data Sheet (TDS). 6. The Tenderer shall not be insolvent, in receivership, or debarred from participating in public procurement." },
+    { "n": 5, "text": "7. The Tenderer shall have at least 3 years of experience in the supply and installation of computer hardware. 8. The Tenderer shall have completed at least one supply contract of BDT 50,00,000 (fifty lakh) or more during the last five years." },
+    { "n": 6, "text": "9. The manufacturer shall provide an authorisation letter for this tender. 10. The manufacturer shall maintain a local support office in Bangladesh. 11. The tender security shall be BDT 1,50,000 (one lakh fifty thousand) in the form of a pay order in favour of the Director, DSHE, valid for 90 days." },
+    { "n": 7, "text": "12. The following documents shall be submitted: (a) valid trade licence; (b) TIN certificate; (c) VAT registration certificate; (d) manufacturer authorisation letter; (e) ISO 9001 certificate of the manufacturer; (f) user list with contact details." }
+  ],
+  "requirements": [
+    { "id": "q1", "kind": "turnover_avg", "label": "Average annual turnover, last 3 years", "operator": ">=", "value": null, "page": 4, "quote": "The Tenderer shall have a minimum average annual turnover as specified in the Tender Data Sheet (TDS)." },
+    { "id": "q2", "kind": "years_experience", "label": "Experience in supply and installation of computer hardware", "operator": ">=", "value": 3, "unit": "years", "page": 5, "quote": "The Tenderer shall have at least 3 years of experience in the supply and installation of computer hardware." },
+    { "id": "q3", "kind": "largest_work", "label": "Largest single supply contract", "operator": ">=", "value": 5000000, "page": 5, "quote": "The Tenderer shall have completed at least one supply contract of BDT 50,00,000 (fifty lakh) or more during the last five years." }
+  ],
+  "documents": [
+    { "id": "d1", "name": "Valid trade licence", "mandatory": true, "page": 7, "quote": "valid trade licence" },
+    { "id": "d2", "name": "TIN certificate", "mandatory": true, "page": 7, "quote": "TIN certificate" },
+    { "id": "d3", "name": "VAT registration certificate", "mandatory": true, "page": 7, "quote": "VAT registration certificate" },
+    { "id": "d4", "name": "Manufacturer authorisation letter", "mandatory": true, "page": 7, "quote": "manufacturer authorisation letter" },
+    { "id": "d5", "name": "ISO 9001 certificate of the manufacturer", "mandatory": true, "page": 7, "quote": "ISO 9001 certificate of the manufacturer" },
+    { "id": "d6", "name": "User list with contact details", "mandatory": true, "page": 7, "quote": "user list with contact details" }
+  ],
+  "ambiguities": [
+    { "page": 4, "text": "as specified in the Tender Data Sheet (TDS)", "reason": "The published document does not contain the TDS threshold. The agent will not assume a figure." },
+    { "page": 6, "text": "local support office in Bangladesh", "reason": "No definition of what counts as a local support office, and no minimum staffing or city is stated." }
+  ]
+}

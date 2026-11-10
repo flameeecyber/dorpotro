@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "note": "Labelled expectations. `npm run eval` fails the build if the pipeline drifts from any of these.",
+  "cases": [
+    {
+      "tenderId": "egp-771204",
+      "expect": "ELIGIBLE",
+      "minCitation": 100,
+      "reason": "All four stated criteria are met by the seed profile."
+    },
+    {
+      "tenderId": "egp-780931",
+      "expect": "AT RISK",
+      "minCitation": 100,
+      "mustFlag": ["q1"],
+      "reason": "The turnover threshold points at an unpublished TDS; the agent must refuse to invent one."
+    },
+    {
+      "tenderId": "egp-788210",
+      "expect": "DISQUALIFIED",
+      "minCitation": 100,
+      "mustFail": ["q1"],
+      "mustHaveChangelog": 3,
+      "reason": "Corrigendum 02 raises turnover to 2.5 cr, which the base document alone would not have shown."
+    },
+    {
+      "tenderId": "egp-793558",
+      "expect": "DISQUALIFIED",
+      "minCitation": 100,
+      "mustFail": ["q1", "q2", "q3"],
+      "reason": "Three stated criteria fail against the seed profile."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "egp-793558",
+  "title": "Third-party audit of annual financial statements for FY 2025-26",
+  "entity": "Bangladesh Power Development Board (BPDB)",
+  "type": "services",
+  "method": "Quality and Cost Based Selection",
+  "estimated_cost": 6000000,
+  "tender_id": "793558",
+  "sample": true,
+  "provenance": "Representative sample modelled on a public e-GP services tender, used to demonstrate a disqualification verdict.",
+  "submission": {
+    "deadline": "2026-11-28T15:00:00+06:00",
+    "mode": "online",
+    "portal": "www.eprocure.gov.bd",
+    "page": 3,
+    "quote": "Proposals must be submitted through the e-GP portal not later than 28 November 2026 at 15:00 hours Bangladesh Standard Time."
+  },
+  "security": {
+    "amount_bdt": 50000,
+    "form": "bank draft",
+    "payee": "Chief Accounts Officer, BPDB",
+    "validity_days": 120,
+    "page": 6,
+    "quote": "The tender security shall be BDT 50,000 (fifty thousand) in the form of a bank draft in favour of the Chief Accounts Officer, BPDB."
+  },
+  "pages": [
+    { "n": 1, "text": "Bangladesh Power Development Board. Office of the Chief Accounts Officer. Request for Proposals. Tender ID: 793558. Method: Quality and Cost Based Selection. Package: BPDB/ACC/2026-27/S-03." },
+    { "n": 2, "text": "1. The Board invites proposals from chartered accountancy firms for the third-party audit of its annual financial statements for the financial year 2025-26. 2. The estimated value of the assignment is BDT 60,00,000 (sixty lakh)." },
+    { "n": 3, "text": "3. Proposals must be submitted through the e-GP portal not later than 28 November 2026 at 15:00 hours Bangladesh Standard Time. 4. Proposals received late shall be rejected without further evaluation." },
+    { "n": 4, "text": "5. The Tenderer shall have a minimum average annual turnover of BDT 5,00,00,000 (five crore) over the last three years." },
+    { "n": 5, "text": "6. The Tenderer shall have at least 10 years of experience in statutory audit and assurance services. 7. The Tenderer shall have completed at least one audit assignment of BDT 1,50,00,000 (one crore fifty lakh) or more in a single contract." },
+    { "n": 6, "text": "8. The tender security shall be BDT 50,000 (fifty thousand) in the form of a bank draft in favour of the Chief Accounts Officer, BPDB. 9. The security shall remain valid for 120 days from the deadline for submission." },
+    { "n": 7, "text": "10. The following documents shall be submitted: (a) valid trade licence; (b) TIN certificate; (c) VAT registration certificate; (d) partnership deed or certificate of incorporation; (e) curriculum vitae of the engagement partner; (f) previous audit reports." }
+  ],
+  "requirements": [
+    { "id": "q1", "kind": "turnover_avg", "label": "Average annual turnover, last 3 years", "operator": ">=", "value": 50000000, "page": 4, "quote": "The Tenderer shall have a minimum average annual turnover of BDT 5,00,00,000 (five crore) over the last three years." },
+    { "id": "q2", "kind": "years_experience", "label": "Experience in statutory audit and assurance", "operator": ">=", "value": 10, "unit": "years", "page": 5, "quote": "The Tenderer shall have at least 10 years of experience in statutory audit and assurance services." },
+    { "id": "q3", "kind": "largest_work", "label": "Largest single audit assignment", "operator": ">=", "value": 15000000, "page": 5, "quote": "The Tenderer shall have completed at least one audit assignment of BDT 1,50,00,000 (one crore fifty lakh) or more in a single contract." }
+  ],
+  "documents": [
+    { "id": "d1", "name": "Valid trade licence", "mandatory": true, "page": 7, "quote": "valid trade licence" },
+    { "id": "d2", "name": "TIN certificate", "mandatory": true, "page": 7, "quote": "TIN certificate" },
+    { "id": "d3", "name": "VAT registration certificate", "mandatory": true, "page": 7, "quote": "VAT registration certificate" },
+    { "id": "d4", "name": "Partnership deed or certificate of incorporation", "mandatory": true, "page": 7, "quote": "partnership deed or certificate of incorporation" },
+    { "id": "d5", "name": "CV of the engagement partner", "mandatory": true, "page": 7, "quote": "curriculum vitae of the engagement partner" },
+    { "id": "d6", "name": "Previous audit reports", "mandatory": true, "page": 7, "quote": "previous audit reports" }
+  ],
+  "ambiguities": []
+}

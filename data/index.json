@@ -1,0 +1,56 @@
+{
+  "tenders": [
+    {
+      "id": "egp-771204",
+      "file": "tenders/works-rhd-sylhet.json",
+      "title": "Construction of 2.4 km RCC road including drainage",
+      "entity": "Roads and Highways Department (RHD), Sylhet Zone",
+      "type": "works",
+      "method": "One Stage One Envelope",
+      "estimated_cost": 42000000,
+      "tender_id": "771204",
+      "pages": 7,
+      "deadline": "2026-11-20T14:00:00+06:00",
+      "amendments": 0
+    },
+    {
+      "id": "egp-780931",
+      "file": "tenders/goods-dshe-it.json",
+      "title": "Supply, installation and commissioning of 120 desktop computers",
+      "entity": "Directorate of Secondary and Higher Education (DSHE)",
+      "type": "goods",
+      "method": "One Stage Two Envelope",
+      "estimated_cost": 18000000,
+      "tender_id": "780931",
+      "pages": 7,
+      "deadline": "2026-12-05T12:00:00+06:00",
+      "amendments": 0
+    },
+    {
+      "id": "egp-788210",
+      "file": "tenders/works-lged-sunamganj.json",
+      "title": "Rehabilitation of 6.5 km rural road, Jagannathpur to Derai",
+      "entity": "Local Government Engineering Department (LGED), Sunamganj",
+      "type": "works",
+      "method": "One Stage One Envelope",
+      "estimated_cost": 32000000,
+      "tender_id": "788210",
+      "pages": 8,
+      "deadline": "2026-11-27T15:00:00+06:00",
+      "amendments": 1
+    },
+    {
+      "id": "egp-793558",
+      "file": "tenders/services-bpdb-audit.json",
+      "title": "Third-party audit of annual financial statements FY 2025-26",
+      "entity": "Bangladesh Power Development Board (BPDB)",
+      "type": "services",
+      "method": "Quality and Cost Based Selection",
+      "estimated_cost": 6000000,
+      "tender_id": "793558",
+      "pages": 7,
+      "deadline": "2026-11-28T15:00:00+06:00",
+      "amendments": 0
+    }
+  ]
+}

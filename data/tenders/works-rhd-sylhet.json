@@ -1,0 +1,49 @@
+{
+  "id": "egp-771204",
+  "title": "Construction of 2.4 km RCC road including drainage at Beanibazar, Sylhet",
+  "entity": "Roads and Highways Department (RHD), Sylhet Zone",
+  "type": "works",
+  "method": "One Stage One Envelope",
+  "estimated_cost": 42000000,
+  "tender_id": "771204",
+  "sample": true,
+  "provenance": "Representative sample modelled on a public e-GP works tender. Replace with a live download via the ingest path.",
+  "submission": {
+    "deadline": "2026-11-20T14:00:00+06:00",
+    "mode": "online",
+    "portal": "www.eprocure.gov.bd",
+    "page": 3,
+    "quote": "Tenders must be submitted through the e-GP portal at www.eprocure.gov.bd not later than 20 November 2026 at 14:00 hours Bangladesh Standard Time."
+  },
+  "security": {
+    "amount_bdt": 200000,
+    "form": "bank guarantee or pay order",
+    "payee": "Executive Engineer, RHD Sylhet",
+    "validity_days": 120,
+    "page": 6,
+    "quote": "The tender security shall be BDT 2,00,000 (two lakh) in the form of a bank guarantee or pay order in favour of the Executive Engineer, RHD Sylhet."
+  },
+  "pages": [
+    { "n": 1, "text": "Government of the People's Republic of Bangladesh. Roads and Highways Department, Sylhet Zone. Invitation for Tenders (IFT). Tender ID: 771204. Procurement Method: One Stage One Envelope. Tender Package No: RHD/SYL/2026-27/W-14." },
+    { "n": 2, "text": "1. The Roads and Highways Department invites sealed tenders from eligible Tenderers for the construction of a 2.4 km RCC road including drainage at Beanibazar, Sylhet. 2. The estimated cost of the Works is BDT 4,20,00,000 (four crore twenty lakh) only." },
+    { "n": 3, "text": "3. Tenders must be submitted through the e-GP portal at www.eprocure.gov.bd not later than 20 November 2026 at 14:00 hours Bangladesh Standard Time. 4. Late tenders shall be rejected." },
+    { "n": 4, "text": "5. The Tenderer shall have a minimum average annual turnover of BDT 1,50,00,000 (one crore fifty lakh) over the last three years." },
+    { "n": 5, "text": "6. The Tenderer shall have at least 5 years of general experience in construction works. 7. The Tenderer shall have completed at least one work of BDT 80,00,000 (eighty lakh) or more in a single contract during the last five years." },
+    { "n": 6, "text": "8. The tender security shall be BDT 2,00,000 (two lakh) in the form of a bank guarantee or pay order in favour of the Executive Engineer, RHD Sylhet. 9. The tender security shall remain valid for 120 days from the deadline for submission." },
+    { "n": 7, "text": "10. The following documents shall be submitted with the tender: (a) valid trade licence; (b) updated TIN certificate; (c) VAT registration certificate; (d) certificate of incorporation; (e) satisfactory completion certificates for similar works." }
+  ],
+  "requirements": [
+    { "id": "q1", "kind": "turnover_avg", "label": "Average annual turnover, last 3 years", "operator": ">=", "value": 15000000, "page": 4, "quote": "The Tenderer shall have a minimum average annual turnover of BDT 1,50,00,000 (one crore fifty lakh) over the last three years." },
+    { "id": "q2", "kind": "years_experience", "label": "General experience in construction works", "operator": ">=", "value": 5, "unit": "years", "page": 5, "quote": "The Tenderer shall have at least 5 years of general experience in construction works." },
+    { "id": "q3", "kind": "largest_work", "label": "Largest single completed work", "operator": ">=", "value": 8000000, "page": 5, "quote": "The Tenderer shall have completed at least one work of BDT 80,00,000 (eighty lakh) or more in a single contract during the last five years." },
+    { "id": "q4", "kind": "trade_licence", "label": "Valid trade licence", "operator": "present", "value": true, "page": 7, "quote": "valid trade licence" }
+  ],
+  "documents": [
+    { "id": "d1", "name": "Valid trade licence", "mandatory": true, "page": 7, "quote": "valid trade licence" },
+    { "id": "d2", "name": "Updated TIN certificate", "mandatory": true, "page": 7, "quote": "updated TIN certificate" },
+    { "id": "d3", "name": "VAT registration certificate", "mandatory": true, "page": 7, "quote": "VAT registration certificate" },
+    { "id": "d4", "name": "Certificate of incorporation", "mandatory": true, "page": 7, "quote": "certificate of incorporation" },
+    { "id": "d5", "name": "Completion certificates for similar works", "mandatory": true, "page": 7, "quote": "satisfactory completion certificates for similar works" }
+  ],
+  "ambiguities": []
+}

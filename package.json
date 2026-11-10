@@ -1,0 +1,17 @@
+{
+  "name": "dorpotro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tender-eligibility agent for Bangladeshi SMEs. Drop a public e-GP tender, get a cited answer.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js",
+    "eval": "node scripts/eval.js",
+    "check": "node --check server.js && node --check lib/pipeline.js && node --check lib/rules.js && node --check lib/verify.js && node --check lib/llm.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "egp-788210",
+  "title": "Rehabilitation of 6.5 km rural road from Jagannathpur to Derai, Sunamganj",
+  "entity": "Local Government Engineering Department (LGED), Sunamganj",
+  "type": "works",
+  "method": "One Stage One Envelope",
+  "estimated_cost": 32000000,
+  "tender_id": "788210",
+  "sample": true,
+  "provenance": "Representative sample modelled on a public e-GP works tender, with a corrigendum attached to demonstrate amendment reconciliation.",
+  "submission": {
+    "deadline": "2026-11-22T14:00:00+06:00",
+    "mode": "online",
+    "portal": "www.eprocure.gov.bd",
+    "page": 3,
+    "quote": "Tenders must be submitted through the e-GP portal not later than 22 November 2026 at 14:00 hours Bangladesh Standard Time."
+  },
+  "security": {
+    "amount_bdt": 160000,
+    "form": "bank guarantee or pay order",
+    "payee": "Executive Engineer, LGED Sunamganj",
+    "validity_days": 120,
+    "page": 6,
+    "quote": "The tender security shall be BDT 1,60,000 (one lakh sixty thousand) in the form of a bank guarantee or pay order in favour of the Executive Engineer, LGED Sunamganj."
+  },
+  "pages": [
+    { "n": 1, "text": "Government of the People's Republic of Bangladesh. Local Government Engineering Department, Sunamganj District. Invitation for Tenders. Tender ID: 788210. Procurement Method: One Stage One Envelope. Package: LGED/SUN/2026-27/W-22." },
+    { "n": 2, "text": "1. The Local Government Engineering Department invites tenders for the rehabilitation of a 6.5 km rural road from Jagannathpur to Derai under Sunamganj district. 2. The estimated cost is BDT 3,20,00,000 (three crore twenty lakh)." },
+    { "n": 3, "text": "3. Tenders must be submitted through the e-GP portal not later than 22 November 2026 at 14:00 hours Bangladesh Standard Time. 4. Tenders received after the deadline shall be rejected." },
+    { "n": 4, "text": "5. The Tenderer shall have a minimum average annual turnover of BDT 1,00,00,000 (one crore) over the last three years." },
+    { "n": 5, "text": "6. The Tenderer shall have at least 5 years of general experience in road rehabilitation works. 7. The Tenderer shall have completed at least one work of BDT 50,00,000 (fifty lakh) or more in a single contract." },
+    { "n": 6, "text": "8. The tender security shall be BDT 1,60,000 (one lakh sixty thousand) in the form of a bank guarantee or pay order in favour of the Executive Engineer, LGED Sunamganj. 9. The security shall remain valid for 120 days from the deadline for submission." },
+    { "n": 7, "text": "10. The following documents shall be submitted: (a) valid trade licence; (b) TIN certificate; (c) VAT registration certificate; (d) satisfactory completion certificates for similar works." },
+    { "n": 8, "text": "Corrigendum No. 02, dated 08 November 2026. Clause 5 is replaced. The Tenderer shall have a minimum average annual turnover of BDT 2,50,00,000 (two crore fifty lakh) over the last three years. Tenderers shall additionally submit an updated income tax clearance certificate. The deadline for submission is extended to 27 November 2026 at 15:00 hours Bangladesh Standard Time." }
+  ],
+  "requirements": [
+    { "id": "q1", "kind": "turnover_avg", "label": "Average annual turnover, last 3 years", "operator": ">=", "value": 10000000, "page": 4, "quote": "The Tenderer shall have a minimum average annual turnover of BDT 1,00,00,000 (one crore) over the last three years." },
+    { "id": "q2", "kind": "years_experience", "label": "Experience in road rehabilitation works", "operator": ">=", "value": 5, "unit": "years", "page": 5, "quote": "The Tenderer shall have at least 5 years of general experience in road rehabilitation works." },
+    { "id": "q3", "kind": "largest_work", "label": "Largest single completed work", "operator": ">=", "value": 5000000, "page": 5, "quote": "The Tenderer shall have completed at least one work of BDT 50,00,000 (fifty lakh) or more in a single contract." }
+  ],
+  "documents": [
+    { "id": "d1", "name": "Valid trade licence", "mandatory": true, "page": 7, "quote": "valid trade licence" },
+    { "id": "d2", "name": "TIN certificate", "mandatory": true, "page": 7, "quote": "TIN certificate" },
+    { "id": "d3", "name": "VAT registration certificate", "mandatory": true, "page": 7, "quote": "VAT registration certificate" },
+    { "id": "d4", "name": "Completion certificates for similar works", "mandatory": true, "page": 7, "quote": "satisfactory completion certificates for similar works" }
+  ],
+  "amendments": [
+    {
+      "number": 2,
+      "date": "2026-11-08",
+      "page": 8,
+      "changes": [
+        { "kind": "override_requirement", "target": "q1", "field": "value", "to": 25000000, "page": 8, "quote": "Clause 5 is replaced. The Tenderer shall have a minimum average annual turnover of BDT 2,50,00,000 (two crore fifty lakh) over the last three years." },
+        { "kind": "add_document", "name": "Updated income tax clearance certificate", "page": 8, "quote": "Tenderers shall additionally submit an updated income tax clearance certificate." },
+        { "kind": "override_submission", "field": "deadline", "to": "2026-11-27T15:00:00+06:00", "page": 8, "quote": "The deadline for submission is extended to 27 November 2026 at 15:00 hours Bangladesh Standard Time." }
+      ]
+    }
+  ],
+  "ambiguities": []
+}

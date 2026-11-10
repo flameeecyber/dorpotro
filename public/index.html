@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dorpotro — tender eligibility, with the page it came from</title>
+    <meta name="description" content="Drop a public e-GP tender and get a cited answer: can you bid, what must you attach, what will disqualify you." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="bangla">দরপত্র</span>
+        <span class="rule"></span>
+        <span class="latin">Dorpotro</span>
+      </div>
+      <p class="tagline">Tender eligibility, with the page it came from.</p>
+      <div class="badges">
+        <span class="badge" id="llm-badge">checking model…</span>
+        <a class="badge ghost" href="/api/health" target="_blank" rel="noreferrer">health</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel">
+        <section>
+          <h2 class="section-title">Your company</h2>
+          <form id="profile-form" class="form" autocomplete="off">
+            <label>
+              <span>Company name</span>
+              <input name="name" type="text" />
+            </label>
+            <div class="pair">
+              <label>
+                <span>Avg. annual turnover</span>
+                <input name="turnover_avg" type="number" min="0" step="1000" inputmode="numeric" />
+                <small class="hint" data-hint="turnover_avg"></small>
+              </label>
+              <label>
+                <span>Largest single work</span>
+                <input name="largest_work" type="number" min="0" step="1000" inputmode="numeric" />
+                <small class="hint" data-hint="largest_work"></small>
+              </label>
+            </div>
+            <div class="pair">
+              <label>
+                <span>Years of experience</span>
+                <input name="years_experience" type="number" min="0" step="1" inputmode="numeric" />
+              </label>
+              <label>
+                <span>Trade licence</span>
+                <input name="trade_licence" type="text" />
+              </label>
+            </div>
+            <div class="pair">
+              <label>
+                <span>TIN</span>
+                <input name="tin" type="text" />
+              </label>
+              <label>
+                <span>VAT</span>
+                <input name="vat" type="text" />
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <section>
+          <h2 class="section-title">Tender</h2>
+          <div id="tenders" class="tender-list" aria-live="polite"></div>
+        </section>
+
+        <button id="run" class="run" disabled>Run audit</button>
+        <p class="footnote">
+          Every finding carries the page it came from. Where the document states no threshold, the agent refuses to
+          assume one.
+        </p>
+      </aside>
+
+      <section id="stage" class="stage" aria-live="polite">
+        <div class="empty">
+          <h1>Can I bid on this tender?</h1>
+          <p>
+            Pick a tender on the left and run the audit. You get a verdict, the clauses behind it with page citations, the
+            document checklist, and the exact tender security you have to arrange.
+          </p>
+          <ul class="bullets">
+            <li><strong>Extract</strong> — qualification clauses and documents, page-addressed</li>
+            <li><strong>Rules</strong> — verdicts computed in code, not guessed by a model</li>
+            <li><strong>Verify</strong> — every quote re-checked against the page it names</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
