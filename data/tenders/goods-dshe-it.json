@@ -6,6 +6,10 @@
   "method": "One Stage Two Envelope",
   "estimated_cost": 18000000,
   "tender_id": "780931",
+  "currency": "BDT",
+  "portal": "e-GP",
+  "timezone": "Asia/Dhaka",
+  "timezone_label": "BST",
   "sample": true,
   "provenance": "Representative sample modelled on a public e-GP goods tender. The turnover threshold deliberately points to a TDS section that is not part of the published document, to exercise the refusal path.",
   "submission": {
@@ -16,7 +20,7 @@
     "quote": "Tenders must be submitted through the e-GP portal not later than 05 December 2026 at 12:00 hours Bangladesh Standard Time."
   },
   "security": {
-    "amount_bdt": 150000,
+    "amount": 150000,
     "form": "pay order",
     "payee": "Director, DSHE",
     "validity_days": 90,

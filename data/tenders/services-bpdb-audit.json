@@ -6,6 +6,10 @@
   "method": "Quality and Cost Based Selection",
   "estimated_cost": 6000000,
   "tender_id": "793558",
+  "currency": "BDT",
+  "portal": "e-GP",
+  "timezone": "Asia/Dhaka",
+  "timezone_label": "BST",
   "sample": true,
   "provenance": "Representative sample modelled on a public e-GP services tender, used to demonstrate a disqualification verdict.",
   "submission": {
@@ -16,7 +20,7 @@
     "quote": "Proposals must be submitted through the e-GP portal not later than 28 November 2026 at 15:00 hours Bangladesh Standard Time."
   },
   "security": {
-    "amount_bdt": 50000,
+    "amount": 50000,
     "form": "bank draft",
     "payee": "Chief Accounts Officer, BPDB",
     "validity_days": 120,

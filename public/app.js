@@ -1,31 +1,53 @@
-const state = { tenders: [], profile: {}, selected: null, audit: null, busy: false }
+const state = { tenders: [], profile: {}, selected: null, audit: null, busy: false, currency: 'BDT', zone: { tz: 'UTC', label: '' } }
 
 const $ = (sel) => document.querySelector(sel)
 
 const esc = (value) =>
   String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
 
-const bdt = (n) => {
+// Mirrors lib/money.js: lakh/crore only for the currencies that use it, ISO code always.
+const LAKH_GROUPED = new Set(['BDT', 'INR', 'PKR', 'NPR', 'LKR'])
+
+const money = (n, currency) => {
   const v = Number(n)
-  if (!Number.isFinite(v)) return '—'
-  if (v >= 1e7) return `BDT ${(v / 1e7).toFixed(2)} cr`
-  if (v >= 1e5) return `BDT ${(v / 1e5).toFixed(2)} lakh`
-  return `BDT ${v.toLocaleString('en-US')}`
+  if (n === null || n === undefined || n === '' || !Number.isFinite(v)) return '—'
+  const cur = String(currency || state.currency || 'BDT').toUpperCase()
+  const abs = Math.abs(v)
+  if (LAKH_GROUPED.has(cur)) {
+    if (abs >= 1e7) return `${cur} ${(v / 1e7).toFixed(2)} cr`
+    if (abs >= 1e5) return `${cur} ${(v / 1e5).toFixed(2)} lakh`
+    return `${cur} ${v.toLocaleString('en-US')}`
+  }
+  if (abs >= 1e9) return `${cur} ${(v / 1e9).toFixed(2)}bn`
+  if (abs >= 1e6) return `${cur} ${(v / 1e6).toFixed(2)}m`
+  return `${cur} ${v.toLocaleString('en-US')}`
 }
 
-const dhaka = (iso) => {
+// The tender names its own timezone; the browser's is irrelevant to a deadline.
+const when = (iso) => {
   if (!iso) return 'not stated'
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return String(iso)
-  return `${d.toLocaleString('en-GB', { timeZone: 'Asia/Dhaka', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })} BST`
+  const stamp = d.toLocaleString('en-GB', {
+    timeZone: state.zone.tz || 'UTC',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+  return state.zone.label ? `${stamp} ${state.zone.label}` : stamp
 }
+
+const portalLabel = (t) => `${t.portal || 'portal'} ${t.tender_id ?? ''}`.trim()
 
 const verdictClass = (v) => (v === 'ELIGIBLE' ? 'ok' : v === 'DISQUALIFIED' ? 'bad' : 'warn')
 
 const fmtChange = (v) => {
   if (v === null || v === undefined) return '—'
-  if (typeof v === 'number') return v >= 1000 ? bdt(v) : String(v)
-  if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(v)) return dhaka(v)
+  if (typeof v === 'number') return v >= 1000 ? money(v) : String(v)
+  if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(v)) return when(v)
   return String(v)
 }
 
@@ -33,7 +55,7 @@ const fmtChange = (v) => {
 function fmtRequirement(f) {
   if (f.value === null || f.value === undefined) return 'not stated'
   if (typeof f.value === 'boolean') return f.value ? 'required' : 'not required'
-  if (f.kind === 'turnover_avg' || f.kind === 'largest_work') return bdt(f.value)
+  if (f.kind === 'turnover_avg' || f.kind === 'largest_work') return money(f.value)
   return `${f.value}${f.unit ? ' ' + f.unit : ''}`
 }
 
@@ -41,7 +63,7 @@ function fmtRequirement(f) {
 function fmtActual(f) {
   const a = f.actual
   if (typeof a !== 'number' || !Number.isFinite(a)) return null
-  if (f.kind === 'turnover_avg' || f.kind === 'largest_work') return bdt(a)
+  if (f.kind === 'turnover_avg' || f.kind === 'largest_work') return money(a)
   if (f.kind === 'years_experience') return `${a} yr`
   return String(a)
 }
@@ -93,7 +115,7 @@ function refreshHints() {
   const form = $('#profile-form')
   for (const key of ['turnover_avg', 'largest_work']) {
     const el = document.querySelector(`[data-hint="${key}"]`)
-    if (el) el.textContent = form.elements[key]?.value ? `= ${bdt(form.elements[key].value)}` : ''
+    if (el) el.textContent = form.elements[key]?.value ? `= ${money(form.elements[key].value)}` : ''
   }
 }
 
@@ -114,7 +136,7 @@ function renderTenders() {
       <button class="tender" type="button" data-id="${esc(t.id)}" aria-pressed="${state.selected === t.id}">
         <span class="t-title">${esc(t.title)}</span>
         <span class="t-meta">${esc(t.entity)}</span>
-        <span class="t-meta t-id">e-GP ${esc(t.tender_id)} · ${esc(t.type)} · ${esc(bdt(t.estimated_cost))} · ${t.pages} pp</span>
+        <span class="t-meta t-id">${esc(portalLabel(t))} · ${esc(t.type)} · ${esc(money(t.estimated_cost, t.currency))} · ${t.pages} pp</span>
       </button>`,
     )
     .join('')
@@ -135,6 +157,8 @@ function renderEmpty() {
 }
 
 function renderAudit(a) {
+  state.currency = a.tender.currency || 'BDT'
+  state.zone = { tz: a.tender.timezone || 'UTC', label: a.tender.timezone_label || '' }
   const v = verdictClass(a.verdict)
   const total = a.counts.PASS + a.counts.RISK + a.counts.FAIL
   const unverified = a.findings.filter((f) => f.citeNote && f.citeNote.includes('not found')).length
@@ -226,17 +250,17 @@ function renderAudit(a) {
       <div class="card">
         <h3>Submission</h3>
         <dl class="kv">
-          <dt>Deadline</dt><dd>${esc(dhaka(a.submission.deadline))}</dd>
+          <dt>Deadline</dt><dd>${esc(when(a.submission.deadline))}</dd>
           <dt>Mode</dt><dd>${esc(a.submission.mode)} · ${esc(a.submission.portal)}</dd>
           <dt>Method</dt><dd>${esc(a.tender.method)}</dd>
-          <dt>Est. cost</dt><dd>${esc(bdt(a.tender.estimated_cost))}</dd>
+          <dt>Est. cost</dt><dd>${esc(money(a.tender.estimated_cost, a.tender.currency))}</dd>
         </dl>
         ${cite(`p.${a.submission.page} · deadline clause`, a.submission.quote)}
       </div>
       <div class="card">
         <h3>Tender security</h3>
         <dl class="kv">
-          <dt>Amount</dt><dd>${esc(bdt(a.security.amount_bdt))}</dd>
+          <dt>Amount</dt><dd>${esc(money(a.security.amount, a.tender.currency))}</dd>
           <dt>Form</dt><dd>${esc(a.security.form)}</dd>
           <dt>Payee</dt><dd>${esc(a.security.payee)}</dd>
           <dt>Validity</dt><dd>${esc(a.security.validity_days)} days</dd>
@@ -245,7 +269,7 @@ function renderAudit(a) {
         <form id="instrument-form" class="form instrument">
           <h3 class="mini">Check your instrument</h3>
           <div class="pair">
-            <label><span>Face value (BDT)</span><input name="amount" type="number" min="0" step="1000" value="${esc(a.security.amount_bdt)}" /></label>
+            <label><span>Face value (${esc(a.tender.currency)})</span><input name="amount" type="number" min="0" step="1000" value="${esc(a.security.amount)}" /></label>
             <label><span>Form</span><input name="form" type="text" value="${esc(String(a.security.form || '').split(' or ')[0] || '')}" /></label>
           </div>
           <div class="pair">
@@ -272,7 +296,7 @@ function renderAudit(a) {
         .map(
           (g) => `<div class="gap">
             <div>${esc(g.label)}</div>
-            <div class="why">Need ${esc(bdt(g.need))} · you have ${esc(bdt(g.have))} · short by <strong>${esc(bdt(g.shortfall))}</strong>${g.page ? ` (p.${esc(g.page)})` : ''}</div>
+            <div class="why">Need ${esc(money(g.need))} · you have ${esc(money(g.have))} · short by <strong>${esc(money(g.shortfall))}</strong>${g.page ? ` (p.${esc(g.page)})` : ''}</div>
           </div>`,
         )
         .join('')}
@@ -286,7 +310,7 @@ function renderAudit(a) {
         .join('')}
       <p class="why">Minimum profile that clears every stated gate: ${
         Object.entries(a.gaps.minimum)
-          .map(([k, v]) => `${MIN_LABEL[k] ?? String(k).replace(/_/g, ' ')} ${k === 'years_experience' ? `${v} yr` : bdt(v)}`)
+          .map(([k, v]) => `${MIN_LABEL[k] ?? String(k).replace(/_/g, ' ')} ${k === 'years_experience' ? `${v} yr` : money(v)}`)
           .join(' · ') || 'no numeric gates stated'
       }.</p>
     </div>` : ''}
@@ -328,7 +352,7 @@ function renderAudit(a) {
       .map((f) => `| ${f.label} | ${f.value ?? 'not stated'} | ${f.actual ?? '—'} | ${f.verdict} | p.${f.cite ?? '?'} |`)
       .join('\n')
     const md = [
-      `### Compliance matrix — e-GP ${a.tender.tender_id}`,
+      `### Compliance matrix — ${portalLabel(a.tender)}`,
       `Tender: ${a.tender.title}`,
       `Bidder: ${a.profile.name}`,
       `Verdict: ${a.verdict} (${a.counts.PASS} pass, ${a.counts.RISK} risk, ${a.counts.FAIL} fail)`,
@@ -337,8 +361,8 @@ function renderAudit(a) {
       '| --- | --- | --- | --- | --- |',
       rows,
       '',
-      `Tender security: ${bdt(a.security.amount_bdt)} (${a.security.form}), valid ${a.security.validity_days} days.`,
-      `Deadline: ${dhaka(a.submission.deadline)}.`,
+      `Tender security: ${money(a.security.amount, a.tender.currency)} (${a.security.form}), valid ${a.security.validity_days} days.`,
+      `Deadline: ${when(a.submission.deadline)}.`,
     ].join('\n')
     try {
       await navigator.clipboard.writeText(md)
@@ -436,7 +460,7 @@ function renderTriage(audits) {
         <span class="t-badge ${verdictClass(a.verdict)}">${esc(a.verdict)}</span>
         <span class="t-main">
           <span class="t-title">${esc(a.tender.title)}</span>
-          <span class="t-meta">e-GP ${esc(a.tender.tender_id)} · ${esc(a.tender.entity)} · ${esc(deadlineNote(a.submission.deadline))}</span>
+          <span class="t-meta">${esc(portalLabel(a.tender))} · ${esc(a.tender.entity)} · ${esc(deadlineNote(a.submission.deadline))}</span>
         </span>
         <span class="t-block">${esc(triageLine(a))}</span>
         <span class="t-open">audit →</span>
@@ -448,7 +472,7 @@ function renderTriage(audits) {
     <div class="triage">
       <h1>Which of these can you bid?</h1>
       <p class="triage-sub">
-        ${audits.length} e-GP tenders audited against your profile: <strong class="t-ok">${count('ELIGIBLE')} eligible</strong>,
+        ${audits.length} tenders audited against your profile: <strong class="t-ok">${count('ELIGIBLE')} eligible</strong>,
         <strong class="t-warn">${count('AT RISK')} at risk</strong>, <strong class="t-bad">${count('DISQUALIFIED')} disqualified</strong>.
         Pick one to see every clause and the page it came from.
       </p>

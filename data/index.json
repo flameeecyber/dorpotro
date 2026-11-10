@@ -9,6 +9,10 @@
       "method": "One Stage One Envelope",
       "estimated_cost": 42000000,
       "tender_id": "771204",
+      "currency": "BDT",
+      "portal": "e-GP",
+      "timezone": "Asia/Dhaka",
+      "timezone_label": "BST",
       "pages": 7,
       "deadline": "2026-11-20T14:00:00+06:00",
       "amendments": 0
@@ -22,6 +26,10 @@
       "method": "One Stage Two Envelope",
       "estimated_cost": 18000000,
       "tender_id": "780931",
+      "currency": "BDT",
+      "portal": "e-GP",
+      "timezone": "Asia/Dhaka",
+      "timezone_label": "BST",
       "pages": 7,
       "deadline": "2026-12-05T12:00:00+06:00",
       "amendments": 0
@@ -35,6 +43,10 @@
       "method": "One Stage One Envelope",
       "estimated_cost": 32000000,
       "tender_id": "788210",
+      "currency": "BDT",
+      "portal": "e-GP",
+      "timezone": "Asia/Dhaka",
+      "timezone_label": "BST",
       "pages": 8,
       "deadline": "2026-11-27T15:00:00+06:00",
       "amendments": 1
@@ -48,6 +60,10 @@
       "method": "Quality and Cost Based Selection",
       "estimated_cost": 6000000,
       "tender_id": "793558",
+      "currency": "BDT",
+      "portal": "e-GP",
+      "timezone": "Asia/Dhaka",
+      "timezone_label": "BST",
       "pages": 7,
       "deadline": "2026-11-28T15:00:00+06:00",
       "amendments": 0

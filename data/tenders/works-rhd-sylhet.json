@@ -6,6 +6,10 @@
   "method": "One Stage One Envelope",
   "estimated_cost": 42000000,
   "tender_id": "771204",
+  "currency": "BDT",
+  "portal": "e-GP",
+  "timezone": "Asia/Dhaka",
+  "timezone_label": "BST",
   "sample": true,
   "provenance": "Representative sample modelled on a public e-GP works tender. Replace with a live download via the ingest path.",
   "submission": {
@@ -16,7 +20,7 @@
     "quote": "Tenders must be submitted through the e-GP portal at www.eprocure.gov.bd not later than 20 November 2026 at 14:00 hours Bangladesh Standard Time."
   },
   "security": {
-    "amount_bdt": 200000,
+    "amount": 200000,
     "form": "bank guarantee or pay order",
     "payee": "Executive Engineer, RHD Sylhet",
     "validity_days": 120,

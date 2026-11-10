@@ -61,7 +61,15 @@ const server = createServer(async (req, res) => {
       const tender = getTender(body?.tenderId)
       if (!tender) return send(res, 404, { error: 'unknown tender' })
       const corr = applyAmendments(tender)
-      return send(res, 200, checkInstrument(body.instrument || {}, { security: tender.security, submission: corr.submission }))
+      return send(
+        res,
+        200,
+        checkInstrument(body.instrument || {}, {
+          security: tender.security,
+          submission: corr.submission,
+          currency: tender.currency || 'BDT',
+        }),
+      )
     }
     if (url.pathname === '/api/audit' && req.method === 'POST') {
       const body = await readBody(req)
