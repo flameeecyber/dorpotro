@@ -1,4 +1,4 @@
-# Dorpotro (দরপত্র)
+# Dorpotro 
 
 **A tender reader that refuses to guess.** Point it at a public procurement document and it answers
 three questions with a page number behind every answer:
